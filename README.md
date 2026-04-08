@@ -1,6 +1,6 @@
 # C_workspace — C 언어 스터디 협업 저장소
 
-> 4명이 함께 C 언어를 공부하는 저장소입니다.  1
+> 4명이 함께 C 언어를 공부하는 저장소입니다.  
 > 공용 문제 폴더(`problem`)에서 문제를 확인하고, 각자 이름 폴더에 풀이를 작성합니다.
 
 ---
@@ -53,7 +53,7 @@ develop  ← 모두가 이 브랜치에서 작업
 
 ## 목차
 
-1. [처음 시작하기 (최초 1회)](#1-처음-시작하기-최초-1회)
+1. [팀원 초기 설정 (초대 받은 후 최초 1회)](#1-팀원-초기-설정-초대-받은-후-최초-1회)
 2. [매일 하는 작업 루틴](#2-매일-하는-작업-루틴)
 3. [다른 사람 코드 받아오기](#3-다른-사람-코드-받아오기)
 4. [충돌 해결법](#4-충돌-해결법)
@@ -62,41 +62,49 @@ develop  ← 모두가 이 브랜치에서 작업
 
 ---
 
-## 1. 처음 시작하기 (최초 1회)
+## 1. 팀원 초기 설정 (초대 받은 후 최초 1회)
 
-### 1-1. GitHub 회원가입
+### 1-1. 초대 수락
 
-1. [https://github.com](https://github.com) 접속 → 우상단 **Sign up**
-2. 이메일, 비밀번호, 사용자 이름 설정
-3. 이메일 인증 완료
+관리자가 보낸 GitHub 초대 이메일을 열고 **Accept invitation** 버튼 클릭
 
-> 관리자(헌규)에게 GitHub 아이디를 알려주면 저장소에 초대해 드립니다.
+> GitHub 계정이 없다면 먼저 [https://github.com](https://github.com) 에서 회원가입 후 초대 링크를 클릭하세요.
 
 ### 1-2. Git 설치
 
 1. [https://git-scm.com/download/win](https://git-scm.com/download/win) 접속
-2. **64-bit Git for Windows Setup** 다운로드 후 설치 (모든 옵션 기본값)
+2. **64-bit Git for Windows Setup** 다운로드 후 설치 (모든 옵션 기본값으로 Next)
 
-설치 확인:
+설치 확인 (Git Bash 또는 터미널에서):
 ```bash
 git --version
 # git version 2.x.x 출력되면 성공
 ```
 
-### 1-3. Git 초기 설정 (이름 & 이메일 등록)
+### 1-3. Git 이름 & 이메일 등록
 
 ```bash
 git config --global user.name "본인이름"
-git config --global user.email "본인이메일@example.com"
+git config --global user.email "GitHub가입이메일@example.com"
+```
+
+등록 확인:
+```bash
+git config --global user.name
+git config --global user.email
 ```
 
 ### 1-4. 저장소 복제 (Clone)
 
-```bash
-# 저장소 복제
-git clone https://github.com/bbanggang/C_workspace.git
+저장소를 내 컴퓨터로 가져옵니다.
 
-# 폴더 진입
+```bash
+git clone https://github.com/bbanggang/C_workspace.git
+```
+
+완료되면 `C_workspace` 폴더가 생성됩니다. 해당 폴더로 이동:
+
+```bash
 cd C_workspace
 ```
 
@@ -111,6 +119,15 @@ git checkout develop
 git branch
 # * develop  ← 이렇게 나오면 정상
 ```
+
+### 1-6. GitHub 로그인 연동
+
+처음 `push` 또는 `pull` 시 GitHub 로그인 팝업이 뜹니다.  
+**Sign in with your browser** 버튼 클릭 → 브라우저에서 로그인 완료
+
+---
+
+이제 준비가 끝났습니다. 아래 작업 루틴을 참고해 코드를 작성하세요.
 
 ---
 
@@ -130,12 +147,15 @@ git pull origin develop
 
 ### 2-2. 코드 작성
 
-`problem/chapter1/` 폴더에서 문제를 확인하고,  
-**본인 이름 폴더**에 풀이를 작성합니다.
+`problem/chapter1/` 폴더에서 문제를 확인하고  
+**본인 이름 폴더** 안에 풀이 파일을 생성해 작성합니다.
 
-예시 (헌규의 경우):
+예시:
 ```
-heonkyu/chapter1/problem01_arithmetic.c  ← 여기에 작성
+heonkyu/chapter1/problem01_arithmetic.c  ← 헌규
+minseo/chapter1/problem01_arithmetic.c   ← 민서
+seungyeon/chapter1/problem01_arithmetic.c ← 승연
+seongjin/chapter1/problem01_arithmetic.c  ← 성진
 ```
 
 ### 2-3. 작업 완료 후 — 저장 및 업로드
@@ -144,10 +164,10 @@ heonkyu/chapter1/problem01_arithmetic.c  ← 여기에 작성
 # 변경된 파일 확인
 git status
 
-# 본인 폴더 스테이징
-git add 본인이름/
+# 본인 폴더만 스테이징 (이름 부분을 본인 폴더명으로 변경)
+git add heonkyu/
 
-# 커밋 (어떤 작업인지 구체적으로 작성)
+# 커밋
 git commit -m "chapter1: problem01 풀이 추가"
 
 # develop에 푸시
@@ -159,7 +179,7 @@ git push origin develop
 | 나쁜 예 | 좋은 예 |
 |---------|---------|
 | `수정` | `chapter1: problem03 성적 계산 풀이 추가` |
-| `업데이트` | `chapter2: problem05 포인터 오류 수정` |
+| `업데이트` | `chapter1: problem05 오류 수정` |
 | `asdf` | `chapter1: problem01~03 풀이 완료` |
 
 ---
@@ -170,16 +190,15 @@ git push origin develop
 git pull origin develop
 ```
 
-pull 후 로컬에 모든 팀원 폴더가 업데이트됩니다.
+pull 후 모든 팀원 폴더가 최신 상태로 업데이트됩니다.
 
 ---
 
 ## 4. 충돌 해결법
 
-같은 파일을 두 사람이 동시에 수정하면 충돌이 발생합니다.  
 **각자 본인 폴더에만 작성하면 충돌이 거의 발생하지 않습니다.**
 
-충돌 발생 시 파일 안에 아래 표시가 나타납니다:
+만약 충돌이 발생하면 파일 안에 아래 표시가 나타납니다:
 
 ```
 <<<<<<< HEAD
@@ -235,7 +254,7 @@ git restore 파일이름
 error: failed to push some refs to 'origin'
 ```
 
-팀원이 먼저 push한 상태. 해결:
+팀원이 먼저 push한 상태입니다. 해결:
 ```bash
 git pull origin develop
 # 충돌 없으면 자동 병합 후
