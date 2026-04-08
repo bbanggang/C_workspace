@@ -9,7 +9,7 @@
 
 | 이름 | 폴더 |
 |------|------|
-| 헌규 | `heonkyu/` |
+| 헌규 | `heongyu/` |
 | 민서 | `minseo/` |
 | 승연 | `seungyeon/` |
 | 성진 | `seongjin/` |
@@ -25,7 +25,7 @@ C_workspace/
 │   │   ├── problem01_arithmetic.c
 │   │   └── ...
 │   └── docs/
-├── heonkyu/              ← 헌규 풀이 폴더
+├── heongyu/              ← 헌규 풀이 폴더
 │   └── chapter1/
 ├── minseo/               ← 민서 풀이 폴더
 │   └── chapter1/
@@ -152,7 +152,7 @@ git pull origin develop
 
 예시:
 ```
-heonkyu/chapter1/problem01_arithmetic.c  ← 헌규
+heongyu/chapter1/problem01_arithmetic.c  ← 헌규
 minseo/chapter1/problem01_arithmetic.c   ← 민서
 seungyeon/chapter1/problem01_arithmetic.c ← 승연
 seongjin/chapter1/problem01_arithmetic.c  ← 성진
@@ -165,7 +165,7 @@ seongjin/chapter1/problem01_arithmetic.c  ← 성진
 git status
 
 # 본인 폴더만 스테이징 (이름 부분을 본인 폴더명으로 변경)
-git add heonkyu/
+git add heongyu/
 
 # 커밋
 git commit -m "chapter1: problem01 풀이 추가"
