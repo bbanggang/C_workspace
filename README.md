@@ -1,6 +1,6 @@
 # C_workspace — C 언어 스터디 협업 저장소
 
-> 4명이 함께 C 언어를 공부하는 저장소입니다.  
+> 인공지능로봇동아리 인원들이 프로그래밍 언어를 공부하는 저장소입니다.  
 > 공용 문제 폴더(`problem`)에서 문제를 확인하고, 각자 이름 폴더에 풀이를 작성합니다.
 
 ---
@@ -9,7 +9,7 @@
 
 | 이름 | 폴더 |
 |------|------|
-| 헌규 | `heonkyu/` |
+| 헌규 | `heongyu/` |
 | 민서 | `minseo/` |
 | 승연 | `seungyeon/` |
 | 성진 | `seongjin/` |
@@ -25,7 +25,7 @@ C_workspace/
 │   │   ├── problem01_arithmetic.c
 │   │   └── ...
 │   └── docs/
-├── heonkyu/              ← 헌규 풀이 폴더
+├── heongyu/              ← 헌규 풀이 폴더
 │   └── chapter1/
 ├── minseo/               ← 민서 풀이 폴더
 │   └── chapter1/
@@ -152,7 +152,7 @@ git pull origin develop
 
 예시:
 ```
-heonkyu/chapter1/problem01_arithmetic.c  ← 헌규
+heongyu/chapter1/problem01_arithmetic.c  ← 헌규
 minseo/chapter1/problem01_arithmetic.c   ← 민서
 seungyeon/chapter1/problem01_arithmetic.c ← 승연
 seongjin/chapter1/problem01_arithmetic.c  ← 성진
@@ -165,7 +165,7 @@ seongjin/chapter1/problem01_arithmetic.c  ← 성진
 git status
 
 # 본인 폴더만 스테이징 (이름 부분을 본인 폴더명으로 변경)
-git add heonkyu/
+git add heongyu/
 
 # 커밋
 git commit -m "chapter1: problem01 풀이 추가"
