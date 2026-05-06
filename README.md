@@ -1,84 +1,95 @@
-# C 언어 스터디 협업 가이드
+# C_workspace — C 언어 스터디 협업 저장소
 
-> **저장소 주소:** https://github.com/bbanggang/C_workspace  
-> GitHub를 처음 사용하는 팀원을 위한 협업 시작 가이드입니다.  
-> 초대 수락부터 브랜치 생성, 코드 공유까지 단계별로 설명합니다.
+> 인공지능로봇동아리 인원들이 프로그래밍 언어를 공부하는 저장소입니다.  
+> 공용 문제 폴더(`problem`)에서 문제를 확인하고, 각자 이름 폴더에 풀이를 작성합니다.
+
+---
+
+## 멤버
+
+| 이름 | 폴더 |
+|------|------|
+| 헌규 | `heongyu/` |
+| 민서 | `minseo/` |
+| 승연 | `seungyeon/` |
+| 성진 | `seongjin/` |
+
+---
+
+## 폴더 구조
+
+```
+C_workspace/
+├── problem/              ← 공용 문제 폴더 (관리자만 수정)
+│   ├── chapter1/
+│   └── docs/
+├── heongyu/              ← 헌규 풀이 폴더
+│   └── chapter1/
+├── minseo/               ← 민서 풀이 폴더
+│   └── chapter1/
+├── seungyeon/            ← 승연 풀이 폴더
+│   └── chapter1/
+└── seongjin/             ← 성진 풀이 폴더
+    └── chapter1/
+```
+
+---
+
+## 브랜치 구조
+
+```
+main     ← 최종 코드 (직접 push 금지)
+develop  ← 모두가 이 브랜치에서 작업
+```
+
+**규칙:**
+- 항상 `develop` 브랜치에서 작업
+- **본인 폴더에만** 코드 작성 (다른 사람 폴더 수정 금지)
+- `main` 브랜치에는 직접 push 금지
 
 ---
 
 ## 목차
 
-1. [저장소 구조](#1-저장소-구조)
-2. [협업자 초대 수락하기](#2-협업자-초대-수락하기)
-3. [Git 설치 및 초기 설정](#3-git-설치-및-초기-설정)
-4. [저장소 복사하기 (Clone)](#4-저장소-복사하기-clone)
-5. [내 브랜치로 이동하기](#5-내-브랜치로-이동하기)
-6. [매일 사용하는 작업 흐름](#6-매일-사용하는-작업-흐름)
-7. [Pull Request (PR) 보내기](#7-pull-request-pr-보내기)
-8. [유용한 Git 명령어 모음](#8-유용한-git-명령어-모음)
-9. [자주 발생하는 오류와 해결법](#9-자주-발생하는-오류와-해결법)
+1. [팀원 초기 설정 (초대 받은 후 최초 1회)](#1-팀원-초기-설정-초대-받은-후-최초-1회)
+2. [매일 하는 작업 루틴](#2-매일-하는-작업-루틴)
+3. [다른 사람 코드 받아오기](#3-다른-사람-코드-받아오기)
+4. [충돌 해결법](#4-충돌-해결법)
+5. [자주 쓰는 명령어](#5-자주-쓰는-명령어)
+6. [자주 발생하는 오류](#6-자주-발생하는-오류)
 
 ---
 
-## 1. 저장소 구조
+## 1. 팀원 초기 설정 (초대 받은 후 최초 1회)
 
-```
-C_workspace/
-├── problem/          ← 공용 문제 폴더 (관리자가 업로드)
-│   ├── chapter1/
-│   └── docs/
-├── 헌규/             ← 각자의 풀이 코드 폴더
-├── 민서/
-├── 승연/
-└── 성진/
-```
+### 1-1. 초대 수락
 
-| 폴더 | 역할 | 수정 권한 |
-|------|------|-----------|
-| `problem/` | 공용 문제 저장소 | 관리자(헌규) |
-| `본인이름/` | 개인 풀이 코드 | 본인만 |
+관리자가 보낸 GitHub 초대 이메일을 열고 **Accept invitation** 버튼 클릭
 
-> **규칙:** 본인 이름 폴더 안에만 코드를 작성하세요. 다른 사람의 폴더는 건드리지 않습니다.
+> GitHub 계정이 없다면 먼저 [https://github.com](https://github.com) 에서 회원가입 후 초대 링크를 클릭하세요.
+
+**이메일을 못 받았다면:**
+1. [https://github.com/bbanggang/C_workspace](https://github.com/bbanggang/C_workspace) 직접 접속
+2. 상단 초대 배너에서 **Accept invitation** 클릭
+
+수락 후 저장소에 **Push 권한**이 생깁니다. 초대를 못 받은 경우 관리자(헌규)에게 GitHub username을 알려주세요.
 
 ---
 
-## 2. 협업자 초대 수락하기
+### 1-2. Git 설치
 
-관리자가 GitHub에서 협업자 초대를 보내면 이메일로 알림이 옵니다.
-
-### 초대 수락 방법
-
-**방법 A — 이메일로 수락**
-1. 가입한 이메일 받은편지함 확인
-2. GitHub에서 온 메일 열기
-3. **"View invitation"** 버튼 클릭
-4. GitHub 페이지에서 **"Accept invitation"** 클릭
-
-**방법 B — GitHub 직접 수락**
-1. [https://github.com/bbanggang/C_workspace](https://github.com/bbanggang/C_workspace) 접속
-2. 상단에 초대 알림 배너가 뜨면 **"Accept invitation"** 클릭
-
-수락 후 저장소에 **Push 권한**이 생깁니다.
-
-> **초대를 못 받았다면?** 관리자(헌규)에게 GitHub username을 알려주세요.
-
----
-
-## 3. Git 설치 및 초기 설정
-
-### Git 설치
-
-**Windows:**
 1. [https://git-scm.com/download/win](https://git-scm.com/download/win) 접속
-2. **64-bit Git for Windows Setup** 다운로드 및 설치 (옵션은 기본값 유지)
+2. **64-bit Git for Windows Setup** 다운로드 후 설치 (모든 옵션 기본값으로 Next)
 
-설치 확인 (터미널 또는 Git Bash에서):
+설치 확인 (Git Bash 또는 터미널에서):
 ```bash
 git --version
 # git version 2.x.x 출력되면 성공
 ```
 
-### 이름 & 이메일 설정 (최초 1회)
+---
+
+### 1-3. Git 이름 & 이메일 등록
 
 GitHub에 표시될 이름과 이메일을 등록합니다:
 ```bash
@@ -86,7 +97,7 @@ git config --global user.name "본인이름"
 git config --global user.email "GitHub가입이메일@example.com"
 ```
 
-설정 확인:
+등록 확인:
 ```bash
 git config --global user.name
 git config --global user.email
@@ -94,184 +105,184 @@ git config --global user.email
 
 ---
 
-## 4. 저장소 복사하기 (Clone)
+### 1-4. 저장소 복제 (Clone)
 
-저장소를 내 컴퓨터로 가져오는 과정입니다. **최초 1회만** 실행합니다.
+저장소를 내 컴퓨터로 가져옵니다.
 
 ```bash
-# 1. 원하는 폴더로 이동 (예: 바탕화면)
-cd ~/Desktop
-
-# 2. 저장소 복사
 git clone https://github.com/bbanggang/C_workspace.git
+```
 
-# 3. 폴더로 진입
+완료되면 `C_workspace` 폴더가 생성됩니다. 해당 폴더로 이동:
+
+```bash
 cd C_workspace
 ```
 
-> Clone 후 GitHub 로그인 팝업이 뜨면 **"Sign in with your browser"** 버튼으로 인증하세요.
+---
+
+### 1-5. develop 브랜치로 이동
+
+```bash
+git checkout develop
+```
+
+브랜치 확인 (`*` 표시가 현재 위치):
+```bash
+git branch
+# * develop  ← 이렇게 나오면 정상
+```
 
 ---
 
-## 5. 내 브랜치로 이동하기
+### 1-6. GitHub 로그인 연동
 
-각자 **본인 이름의 브랜치**에서 작업합니다. `main` 브랜치에 직접 작업하지 않습니다.
-
-| 팀원 | 브랜치 이름 |
-|------|------------|
-| 헌규 | `heongyu` |
-| 민서 | `minseo` |
-| 승연 | `seungyeon` |
-| 성진 | `seongjin` |
-
-```bash
-# 원격 브랜치 목록 가져오기
-git fetch
-
-# 내 브랜치로 이동 (본인 브랜치 이름으로 변경)
-git switch heongyu      # 헌규
-git switch minseo       # 민서
-git switch seungyeon    # 승연
-git switch seongjin     # 성진
-```
-
-> 브랜치를 옮기면 터미널에 `(branchname)` 으로 현재 브랜치가 표시됩니다.  
-> 항상 본인 브랜치에 있는지 확인 후 작업하세요.
+처음 `push` 또는 `pull` 시 GitHub 로그인 팝업이 뜹니다.  
+**Sign in with your browser** 버튼 클릭 → 브라우저에서 로그인 완료
 
 ---
 
-## 6. 매일 사용하는 작업 흐름
+이제 준비가 끝났습니다. 아래 작업 루틴을 참고해 코드를 작성하세요.
+
+---
+
+## 2. 매일 하는 작업 루틴
 
 ```
-작업 시작        →  git pull          (최신 상태로 업데이트)
-코드 작성/수정
-완료 후          →  git add .         (변경 파일 준비)
-                 →  git commit -m ""  (변경 내용 저장)
-                 →  git push          (GitHub에 올리기)
+작업 시작 전  →  git pull (최신 코드 받아오기)
+코드 작성     →  본인 폴더에만 작성
+작업 완료 후  →  add → commit → push
 ```
 
-### 상세 명령어
+### 2-1. 작업 시작 전 — 최신 코드 동기화
 
 ```bash
-# 1. 작업 시작 전 — 최신 상태 받아오기
-git pull
+git pull origin develop
+```
 
-# --- 본인 이름 폴더 안에서 코드 작성 ---
+### 2-2. 코드 작성
 
-# 2. 변경 파일 확인 (습관 들이면 좋음)
+`problem/` 폴더에서 문제를 확인하고 **본인 이름 폴더** 안에 풀이 파일을 생성해 작성합니다.
+
+예시:
+```
+heongyu/chapter1/problem01_arithmetic.c  ← 헌규
+minseo/chapter1/problem01_arithmetic.c   ← 민서
+seungyeon/chapter1/problem01_arithmetic.c ← 승연
+seongjin/chapter1/problem01_arithmetic.c  ← 성진
+```
+
+### 2-3. 작업 완료 후 — 저장 및 업로드
+
+```bash
+# 변경된 파일 확인
 git status
 
-# 3. 변경 파일 스테이징
-git add .              # 모든 변경 파일
-git add 헌규/파일.c    # 특정 파일만
+# 본인 폴더만 스테이징 (이름 부분을 본인 폴더명으로 변경)
+git add heongyu/
 
-# 4. 커밋 메시지 작성
-git commit -m "1장 버블정렬 풀이 추가"
+# 커밋
+git commit -m "chapter1: problem01 풀이 추가"
 
-# 5. GitHub에 업로드
-git push
+# develop에 푸시
+git push origin develop
 ```
 
-### 커밋 메시지 작성 예시
+### 커밋 메시지 예시
 
-| 상황 | 커밋 메시지 |
-|------|------------|
-| 새 풀이 추가 | `문제 3번 풀이 추가` |
-| 오류 수정 | `버블정렬 무한루프 오류 수정` |
-| 코드 정리 | `변수명 정리 및 주석 추가` |
-
-> 커밋 메시지는 나중에 어떤 작업을 했는지 기록으로 남으니 구체적으로 작성하세요.
+| 나쁜 예 | 좋은 예 |
+|---------|---------|
+| `수정` | `chapter1: problem03 성적 계산 풀이 추가` |
+| `업데이트` | `chapter1: problem05 오류 수정` |
+| `asdf` | `chapter1: problem01~03 풀이 완료` |
 
 ---
 
-## 7. Pull Request (PR) 보내기
+## 3. 다른 사람 코드 받아오기
 
-`main` 브랜치는 **보호되어 있어** 직접 수정할 수 없습니다.  
-본인 브랜치의 코드를 `main`에 합치려면 **PR(Pull Request)**을 통해야 합니다.
-
-### PR 보내는 순서
-
-**1단계 — 코드를 본인 브랜치에 push**
 ```bash
-git push
+git pull origin develop
 ```
 
-**2단계 — GitHub에서 PR 생성**
-1. [https://github.com/bbanggang/C_workspace](https://github.com/bbanggang/C_workspace) 접속
-2. 상단에 뜨는 **"Compare & pull request"** 버튼 클릭  
-   (없으면 **Pull requests** 탭 → **New pull request**)
-3. 설정 확인:
-   - `base`: `main` ← `compare`: 본인 브랜치
-4. 제목과 설명 작성 후 **"Create pull request"** 클릭
-
-**3단계 — 관리자 검토 후 병합**
-- 관리자(헌규)가 코드를 확인하고 `main`에 병합합니다
-- 병합 완료 알림은 이메일 또는 GitHub 알림으로 전달됩니다
-
-> PR을 통해 코드 리뷰가 가능해서 실무와 동일한 방식으로 협업할 수 있습니다.
+pull 후 모든 팀원 폴더가 최신 상태로 업데이트됩니다.
 
 ---
 
-## 8. 유용한 Git 명령어 모음
+## 4. 충돌 해결법
 
-### 상태 확인
+**각자 본인 폴더에만 작성하면 충돌이 거의 발생하지 않습니다.**
 
-```bash
-git status                        # 변경된 파일 목록
-git diff                          # 무엇이 변경됐는지 내용
-git log --oneline                 # 커밋 기록 (한 줄 요약)
-git log --oneline --graph --all   # 브랜치 포함 시각화
-git branch -a                     # 모든 브랜치 목록
+만약 충돌이 발생하면 파일 안에 아래 표시가 나타납니다:
+
+```
+<<<<<<< HEAD
+내가 작성한 코드
+=======
+팀원이 작성한 코드
+>>>>>>> origin/develop
 ```
 
-### 브랜치 이동
+해결 방법:
+1. 해당 파일 열기
+2. `<<<<<<<`, `=======`, `>>>>>>>` 표시줄 삭제
+3. 남길 코드 선택 후 저장
+4. 재커밋:
 
 ```bash
-git switch 브랜치이름     # 브랜치 이동
-git branch                # 현재 브랜치 확인
-```
-
-### 되돌리기
-
-```bash
-git restore --staged 파일이름   # 스테이징 취소 (add 취소)
-git restore 파일이름            # 파일을 수정 전으로 되돌리기 (주의: 복구 불가)
-```
-
-### 원격 저장소
-
-```bash
-git remote -v    # 원격 저장소 주소 확인
-git fetch        # 원격 변경사항 가져오기 (병합 안 함)
-git pull         # 가져오기 + 내 브랜치에 병합
+git add .
+git commit -m "충돌 해결"
+git push origin develop
 ```
 
 ---
 
-## 9. 자주 발생하는 오류와 해결법
+## 5. 자주 쓰는 명령어
 
-### push가 안 될 때
+```bash
+# 현재 상태 확인
+git status
+
+# 현재 브랜치 확인
+git branch
+
+# 커밋 기록 보기
+git log --oneline --graph --all
+
+# 변경 내용 확인
+git diff
+
+# 스테이징 취소
+git restore --staged 파일이름
+
+# 파일 수정 전으로 되돌리기 (주의: 복구 불가)
+git restore 파일이름
+```
+
+---
+
+## 6. 자주 발생하는 오류
+
+### push가 거부될 때
 
 ```
 error: failed to push some refs to 'origin'
 ```
 
-원인: 팀원이 먼저 push해서 내 로컬이 뒤처진 상태  
-해결:
+팀원이 먼저 push한 상태입니다. 해결:
 ```bash
-git pull
-git push
+git pull origin develop
+# 충돌 없으면 자동 병합 후
+git push origin develop
 ```
 
 ---
 
-### "Please tell me who you are" 오류
+### 이름/이메일 미설정 오류
 
 ```
 Author identity unknown
 ```
 
-원인: `user.name`, `user.email` 미설정  
 해결:
 ```bash
 git config --global user.name "이름"
@@ -280,48 +291,14 @@ git config --global user.email "이메일"
 
 ---
 
-### git pull 후 에디터(vim)가 열릴 때
+### git pull 후 vim 편집기가 열릴 때
 
-자동 병합 커밋 메시지 입력 화면입니다.  
-`:wq` 입력 후 Enter를 누르면 저장 후 종료됩니다.
+`:wq` 입력 후 Enter (저장하고 종료)
 
-기본 에디터를 VS Code로 변경하려면:
+VS Code를 기본 에디터로 설정하려면:
 ```bash
 git config --global core.editor "code --wait"
 ```
-
----
-
-### 충돌(Conflict)이 발생했을 때
-
-`git pull` 후 아래와 같은 표시가 파일 안에 나타납니다:
-
-```
-<<<<<<< HEAD
-내가 작성한 코드
-=======
-팀원이 작성한 코드
->>>>>>> origin/main
-```
-
-해결 방법:
-1. 해당 파일을 열어 `<<<<<<<`, `=======`, `>>>>>>>` 줄을 찾습니다
-2. 남길 코드만 선택하고 나머지 표시줄 삭제
-3. 저장 후 다시 커밋:
-```bash
-git add .
-git commit -m "충돌 해결"
-git push
-```
-
----
-
-## 주의사항
-
-- `git push --force` 는 팀원의 코드를 덮어씌울 수 있으니 **절대 사용 금지**
-- 항상 **본인 이름 브랜치**에서 작업하고, `main` 브랜치에는 직접 수정하지 않기
-- 작업 시작 전 **반드시 `git pull`** 로 최신 상태 유지
-- 코드는 **본인 이름 폴더** 안에만 작성하기
 
 ---
 
@@ -333,4 +310,4 @@ git push
 
 ---
 
-> 궁금한 점은 저장소 관리자(헌규)에게 문의하거나 **Issues** 탭에 남겨주세요.
+> 궁금한 점은 저장소 Issues 탭에 남겨주세요.
